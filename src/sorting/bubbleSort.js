@@ -7,9 +7,25 @@
 */
 
 export const bubbleSort = {
-    normal: (arr) => {
-        // I'm just cheating for now
-        return arr.sort((a,b) => a-b);
+    normal: (array) => {
+        let arr = array;
+        let sorted;
+        do {
+            sorted = true;
+            for (let i = 0; i < arr.length; i++) {
+                let t;
+                if (arr[i] > arr[i+1]) {
+                    sorted = false;
+
+                    // swap the two items
+                    t = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = t;
+                }
+            }
+        } while (!sorted);
+
+        return arr;
     },
 
     recursive: () => { return; }
