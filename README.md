@@ -6,4 +6,5 @@ All algorithms are to be written both recursively and not.
 run `npm install` in root folder
 
 # while developing
-Run `npm install` to watch `src` folder.
+Run `npm start` to watch `src` folder.
+Run `npm run playground` to run tests on playground.

@@ -1,11 +1,11 @@
-export const test = (arr, callback, sortType="unknown", complexity="unknown") => {
-    if (arr.sort() === callback(arr)) {
+export const test = (algorithm, result, sortType="unknown") => {
+    if (algorithm === result) {
         console.log("\x1b[32m",
             `
-                original: ${arr}
-                sorted: ${callback(arr)}
+                ✔️ PASSED
+                result: ${algorithm} ===> expected: ${result}
                 sorted with ${sortType}
-                complexity: ${complexity}
+                ${algorithm == result}
             `
         );
         console.log("\x1b[0m")
@@ -14,12 +14,10 @@ export const test = (arr, callback, sortType="unknown", complexity="unknown") =>
 
     console.log("\x1b[31m",
         `
-            something isn't right...
-            original: ${arr}
-            sorted: ${arr.sort()}
-            callback result: ${callback(arr)}
+            ❌ FAILED            
+            result: ${algorithm} ===> expected: ${result}
             sorted with ${sortType}
-            complexity: ${complexity}
+            ${algorithm == result}
         `
     );
     console.log("\x1b[0m")
