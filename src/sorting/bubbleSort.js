@@ -7,22 +7,22 @@
 */
 
 export const bubbleSort = {
-    normal: (array) => {
-        let arr = array;
-        let sorted;
+    normal: (arr) => {
+        let sorted = arr;
+        let isSorted;
         do {
-            sorted = true;
+            isSorted = true;
             for (let i = 0; i < arr.length; i++) {
-                if (arr[i] > arr[i+1]) {
-                    sorted = false;
+                if (sorted[i] > sorted[i+1]) {
+                    isSorted = false;
 
                     // swap the two items
-                    let t = arr[i];
-                    arr[i] = arr[i+1];
-                    arr[i+1] = t;
+                    let t = sorted[i];
+                    sorted[i] = sorted[i+1];
+                    sorted[i+1] = t;
                 }
             }
-        } while (!sorted);
+        } while (!isSorted);
 
         return arr;
     },
