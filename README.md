@@ -6,5 +6,4 @@ All algorithms are to be written both recursively and not.
 run `npm install` in root folder
 
 # while developing
-Compile ES6 with `npm run build` before running the playground.
-Run playground with `npm run start`
+Run `npm install` to watch `src` folder.
