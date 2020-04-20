@@ -13,12 +13,11 @@ export const bubbleSort = {
         do {
             sorted = true;
             for (let i = 0; i < arr.length; i++) {
-                let t;
                 if (arr[i] > arr[i+1]) {
                     sorted = false;
 
                     // swap the two items
-                    t = arr[i];
+                    let t = arr[i];
                     arr[i] = arr[i+1];
                     arr[i+1] = t;
                 }
