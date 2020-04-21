@@ -1,10 +1,17 @@
-// call tests here
+// tests
 import { test } from './test.js';
 
+// data structures
+import { arrayOfNums } from './data-structures/arraysOfNums';
+
+// algorithms
 import { bubbleSort } from './sorting/bubbleSort.js';
 
-test(
-    bubbleSort.normal([34, 36.1, 7, 9, 14]),
-    [7, 9, 14, 34, 36.1],
-    "bubble sort"
-);
+
+arrayOfNums(5, 10, 100).forEach(arr => {
+    test(
+        bubbleSort.normal(arr),
+        arr.sort((a,b) => a-b),
+        "bubble sort"
+    );
+});
