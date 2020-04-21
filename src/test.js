@@ -14,7 +14,7 @@ export const test = (algorithm, result, sortType="unknown") => {
         console.log(
             "\x1b[32m", // green color
             `
-                ✔️ PASSED
+                ✔ PASSED
                 result: ${algorithm} ===> expected: ${result}
                 sorted with ${sortType}
             `

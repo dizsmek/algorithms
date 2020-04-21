@@ -1,5 +1,6 @@
 // call tests here
-import { test } from './sorting/test.js';
+import { test } from './test.js';
+
 import { bubbleSort } from './sorting/bubbleSort.js';
 
 test(
