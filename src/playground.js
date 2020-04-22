@@ -2,7 +2,7 @@
 import { test } from './test.js';
 
 // data structures
-import { arrayOfNums } from './data-structures/arraysOfNums';
+import { arrayOfNums } from './data-structures/arrays/numbers/arraysOfNums';
 
 // algorithms
 import { bubbleSort } from './sorting/bubbleSort.js';
