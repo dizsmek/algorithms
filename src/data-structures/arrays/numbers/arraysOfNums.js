@@ -1,4 +1,4 @@
-export const generateArrayOfNums = (arrayCount, itemCount, range) => {
+const generateArrayOfNums = (arrayCount, itemCount, range) => {
     let arr = [];
     for (let i = 0; i < arrayCount; i++) {
         let tempArr = [];
@@ -11,16 +11,15 @@ export const generateArrayOfNums = (arrayCount, itemCount, range) => {
     return arr;
 }
 
-export const checkArrayOfNums = (dataSet) => {
-    if (!Array.isArray(dataSet)) {
-        return false;
-    }
+const checkArrayOfNums = (dataSet) => {
+    if (!Array.isArray(dataSet)) return false;
+    if (dataSet.length === 0) return true;
 
     for (let i = 0; i < dataSet.length; i++) {
-        if (typeof dataSet[i] !== 'number' || Number.isNaN(dataSet[i]) || !Number.isFinite(dataSet[i])) {
-            return false;
-        }
-
+        if (typeof dataSet[i] !== 'number' || Number.isNaN(dataSet[i]) || !Number.isFinite(dataSet[i])) return false;
         return true;
     }
 }
+
+exports.generateArrayOfNums = generateArrayOfNums;
+exports.checkArrayOfNums = checkArrayOfNums;

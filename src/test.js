@@ -1,36 +1,31 @@
-export const test = (dataTypeCheck, algorithm, result, sortType="unknown", index) => {
+const chalk = require('chalk');
+
+const test = (dataTypeCheck, algorithm, dataset, index, sortType="unknown") => {
+    if (!dataTypeCheck(dataset)) {
+        console.log(chalk.yellow(`${JSON.stringify(dataset)} at #${index} is an invalid set of data for ${sortType}`));
+        return;
+    }
+
+    const result = dataset.sort((a,b) => a-b)
+
     // two identical arrays are not equal, so this is how we can evaluate their equality
-    const passed = () => {
-        let temp = true;
+    const passed = JSON.stringify(algorithm(dataset)) === JSON.stringify(dataset.sort((a,b) => a-b));
 
-        for (let i = 0; i < result.length; i++) {
-            if (algorithm[i] !== result[i]) { temp = false }
-        }
 
-        return temp;
+    // passed test log
+    if (passed) {
+        console.log(chalk.green(` ✔ #${index} PASSED with ${sortType}`));
+        return;
     }
 
-    if (!dataTypeCheck) {
-        console.log(`#${index} is an invalid set of data for ${sortType}`);
-    } else {
-        if (passed()) {
-            console.log(
-                "\x1b[32m", // green color
-                ` ✔ #${index} PASSED with ${sortType} sorting`
-            );
-            console.log("\x1b[0m")
-            return;
-        }
-    
-        console.log(
-            "\x1b[31m", // red color
-            `
-                ❌ #${index} FAILED
-                result: ${algorithm} ===> expected: ${result}
-                sorted with ${sortType}
-            `
-        );
-    
-        console.log("\x1b[0m"); // reset color
-    }
+    // failed test log
+    console.log(chalk.red(
+            `#${index} FAILED\n` +
+            `result:    ${JSON.stringify(algorithm(dataset))}\n` +
+            `expected:  ${JSON.stringify(result)}\n` +
+            `sorted with ${sortType}\n`
+        )
+    );
 }
+
+exports.test = test;

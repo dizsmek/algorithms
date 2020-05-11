@@ -1,21 +1,44 @@
 // tests
-import { test } from './test.js';
+const { test } = require('./test');
 
 // data structures
-import { generateArrayOfNums, checkArrayOfNums } from './data-structures/arrays/numbers/arraysOfNums';
+const { generateArrayOfNums, checkArrayOfNums } = require('./data-structures/arrays/numbers/arraysOfNums');
 
 // algorithms
-import { bubbleSort } from './sorting/bubbleSort.js';
+const { bubbleSort } = require('./sorting/bubbleSort');
 
 
-const testData = [];
+const randomDataSet = generateArrayOfNums(5, 10, 100);
+const trickyDataSet = [
+    [],                         // should work
+    [[]],                       // shouldn't work
+    [{}],                       // shouldn't work
+    [''],                       // shouldn't work
+    [null, 1, 2, 3],            // shouldn't work
+    [-Infinity, 0, Infinity]    // shouldn't work
+    ['2', '3', 1, '15'],        // shouldn't work
+    [ () => [3, 4, 1,] ],       // shouldn't work
+    [4, 2, 6, 1]                // should work
+];
 
-generateArrayOfNums(5, 10, 100).forEach((arr, i) => {
+console.log('--- With random dataset ---');
+randomDataSet.forEach((arr, i) => {
     test(
-        checkArrayOfNums(arr),  // type checking callback
-        bubbleSort.normal(arr), // algorithm
-        arr.sort((a,b) => a-b), // expected result
-        "bubble sort",          // sort type
-        i                       // index
+        checkArrayOfNums,       // type checking callback
+        bubbleSort,             // algorithm
+        arr,                    // dataset
+        i,                      // index
+        "bubble sort"           // sort type
+    );
+});
+
+console.log('--- With tricky dataset ---');
+trickyDataSet.forEach((arr, i) => {
+    test(
+        checkArrayOfNums,       // type checking callback
+        bubbleSort,             // algorithm
+        arr,                    // dataset
+        i,                      // index
+        "bubble sort"           // sort type
     );
 });
