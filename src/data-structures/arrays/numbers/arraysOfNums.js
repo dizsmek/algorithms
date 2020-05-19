@@ -1,4 +1,4 @@
-const generateArrayOfNums = (arrayCount, itemCount, range) => {
+const generateArraysOfNums = (arrayCount, itemCount, range) => {
     let arr = [];
     for (let i = 0; i < arrayCount; i++) {
         let tempArr = [];
@@ -11,7 +11,7 @@ const generateArrayOfNums = (arrayCount, itemCount, range) => {
     return arr;
 }
 
-const checkArrayOfNums = (dataSet) => {
+const isValidArrayOfNums = (dataSet) => {
     if (!Array.isArray(dataSet)) return false;
     if (dataSet.length === 0) return true;
 
@@ -21,5 +21,5 @@ const checkArrayOfNums = (dataSet) => {
     }
 }
 
-exports.generateArrayOfNums = generateArrayOfNums;
-exports.checkArrayOfNums = checkArrayOfNums;
+exports.generateArraysOfNums = generateArraysOfNums;
+exports.isValidArrayOfNums = isValidArrayOfNums;

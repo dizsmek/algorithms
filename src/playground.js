@@ -2,13 +2,13 @@
 const { test } = require('./test');
 
 // data structures
-const { generateArrayOfNums, checkArrayOfNums } = require('./data-structures/arrays/numbers/arraysOfNums');
+const { generateArraysOfNums, isValidArrayOfNums } = require('./data-structures/arrays/numbers/arraysOfNums');
 
 // algorithms
 const { bubbleSort } = require('./sorting/bubbleSort');
 
 
-const randomDataSet = generateArrayOfNums(5, 10, 100);
+const randomDataSet = generateArraysOfNums(5, 10, 100);
 const trickyDataSet = [
     [],                         // should work
     [[]],                       // shouldn't work
@@ -24,7 +24,7 @@ const trickyDataSet = [
 console.log('--- With random dataset ---');
 randomDataSet.forEach((arr, i) => {
     test(
-        checkArrayOfNums,       // type checking callback
+        isValidArrayOfNums,       // type checking callback
         bubbleSort,             // algorithm
         arr,                    // dataset
         i,                      // index
@@ -35,7 +35,7 @@ randomDataSet.forEach((arr, i) => {
 console.log('--- With tricky dataset ---');
 trickyDataSet.forEach((arr, i) => {
     test(
-        checkArrayOfNums,       // type checking callback
+        isValidArrayOfNums,       // type checking callback
         bubbleSort,             // algorithm
         arr,                    // dataset
         i,                      // index

@@ -6,7 +6,7 @@
     Link: https://en.wikipedia.org/wiki/Bubble_sort
 */
 
-const { checkArrayOfNums } = require('../data-structures/arrays/numbers/arraysOfNums');
+const { isValidArrayOfNums } = require('../data-structures/arrays/numbers/arraysOfNums');
 
 const bubbleSort = {
     normal: (arr) => {
