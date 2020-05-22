@@ -6,7 +6,9 @@
     Link: https://en.wikipedia.org/wiki/Bubble_sort
 */
 
-export const bubbleSort = {
+const { isValidArrayOfNums } = require('../data-structures/arrays/numbers/arraysOfNums');
+
+const bubbleSort = {
     normal: (arr) => {
         let sorted = arr;
         let isSorted;
@@ -16,7 +18,6 @@ export const bubbleSort = {
                 if (sorted[i] > sorted[i+1]) {
                     isSorted = false;
 
-                    // swap the two items
                     let t = sorted[i];
                     sorted[i] = sorted[i+1];
                     sorted[i+1] = t;
@@ -29,3 +30,6 @@ export const bubbleSort = {
 
     recursive: () => { return; }
 }
+
+exports.bubbleSort = bubbleSort.normal;
+exports.recursiveBubbleSort = bubbleSort.recursive;
