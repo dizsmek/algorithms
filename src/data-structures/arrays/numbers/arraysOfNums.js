@@ -13,12 +13,12 @@ const generateArraysOfNums = (arrayCount, itemCount, range) => {
 
 const isValidArrayOfNums = (dataSet) => {
     for (let i = 0; i < dataSet.length; i++) {
-        if (!Array.isArray(dataSet) ||
+        if (
+            !Array.isArray(dataSet) ||
             typeof dataSet[i] !== 'number' ||
             Number.isNaN(dataSet[i]) ||
-            !Number.isFinite(dataSet[i])) {
-                return false
-            };
+            !Number.isFinite(dataSet[i])
+        ) return false;
     }
 
     return true;

@@ -15,7 +15,7 @@ const trickyDataSet = [
     [{}],                       // shouldn't work
     [''],                       // shouldn't work
     [null, 1, 2, 3],            // shouldn't work
-    [-Infinity, 0, Infinity]    // shouldn't work
+    [-Infinity, 0, Infinity],   // shouldn't work
     ['2', '3', 1, '15'],        // shouldn't work
     [ () => [3, 4, 1,] ],       // shouldn't work
     [4, 2, 6, 1]                // should work
